@@ -1,0 +1,107 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+  
+  
+  <html xmlns = "http://www.w3.org/1999/xhtml">
+  <head>
+  <title>Airline Reservations System</title>
+  <script type = "text/javascript">
+  <!--
+  var section;
+  var seats = [ , 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ];
+  var firstclass = 1;
+  var economy = 6;
+  var people = 0;
+  
+  function AssignSeat()
+  {
+	var SeatAssignment;
+	
+	if (people <=10)
+	{
+		section = parseInt(
+			document.getElementById( "form" ).section.value);
+			
+			if (section == 1)
+			{
+				if ( firstclass <= 5 && seats [firstclass]== 0 ) 
+				{
+					window.alert( "First Class.Seat #" + firstclass);
+					seats[firstclass] = 1; // remove seat from first class
+					++people; //add person to variable
+					++firstclass; //add seat for first class
+					} //end if
+					else if (firstclass > 5 && economy <=10)
+					{
+						var conf = window.confirm("First Class is full.  Would you like to sit in economy?" +
+						"Click Cancel to wait for the next flight.");
+						
+						if (conf)
+						{
+							window.alert("Your seat assignment is" + economy);
+							seats[economy] = 1;
+							++people;
+							++economy;
+							} // end if
+							else
+							window.alert("The next flight leaves in 3 hours.");
+						} // end else if
+						else
+							window.alert("The next flight leaves in 3 hours.");
+						} // end if
+						else if (section ==2)
+						{
+							if (economy <= 10 && seats [economy] == 0)
+							{
+								window.alert("Economy. Seat #" + economy);
+								seats[economy] = 1;
+								++people;
+								++economy;
+								} //end if
+								else if (economy > 10 && firstclass <=5)
+								{
+									var conf = window.confirm(
+									"Economy is full. Would you like to sit in first class?"
+									+ "Click Cancel to wait for the next flight.");
+								
+								if (conf)
+								{
+									window.alert ("Your seat assignment is"
+									+ firstclass);
+									seats[firstclass] = 1;
+									++people;
+									++firstclass;
+									} // end if
+									else
+										window.alert("The next flight leaves in 3 hours.");
+										} // end else if
+									else
+										window.alert("The next flight leaves in 3 hours.");
+									} // end else if
+									else
+										window.alert("Error");
+									} // end if from line 21
+								} // end function
+									// -->
+							</script>
+							</head>
+							<body>
+							<form id = "form" action = "">
+								<table border = "0">
+								<tr>
+								<td>
+								Please type 1 for First Class <br>
+								Please type 2 for Economy
+								</td>
+								<td>
+								<input name = "section" type = "text" size = "15" />
+								</td>
+								<td>
+								<input type = "button" value = "Make Reservation" onclick = "AssignSeat()" />
+								</td>
+								</tr>
+								</table>
+								</form>
+								</body>
+		
